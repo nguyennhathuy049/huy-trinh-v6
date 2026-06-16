@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Huy ❤️ Trinh V6</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#ffd6e7,
+#fff0f7
+);
+
+overflow:hidden;
+
+height:100vh;
+
+}
+
+.page{
+
+display:none;
+
+width:100%;
+height:100vh;
+
+justify-content:center;
+align-items:center;
+
+padding:20px;
+
+}
+
+.active{
+
+display:flex;
+
+animation:fade .7s;
+
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.card{
+
+width:100%;
+max-width:500px;
+
+background:
+rgba(255,255,255,.85);
+
+backdrop-filter:blur(15px);
+
+padding:25px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.main-img{
+
+width:100%;
+
+border-radius:20px;
+
+margin-bottom:15px;
+
+}
+
+h1,h2{
+
+margin-bottom:15px;
+
+color:#ff4f81;
+
+}
+
+p{
+
+margin-bottom:15px;
+
+}
+
+input,
+textarea{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:15px;
+
+background:#fff;
+
+font-size:16px;
+
+}
+
+button{
+
+margin-top:15px;
+
+width:100%;
+
+padding:13px;
+
+border:none;
+
+border-radius:15px;
+
+background:#ff4f81;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+.food{
+
+padding:15px;
+
+margin:10px 0;
+
+background:white;
+
+border-radius:15px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.food:hover{
+
+background:#ffe1ec;
+
+transform:scale(1.03);
+
+}
+
+.heart{
+
+position:fixed;
+
+font-size:26px;
+
+pointer-events:none;
+
+animation:fly linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes fly{
+
+0%{
+
+opacity:0;
+
+transform:
+translate(0,0)
+rotate(0deg);
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(
+var(--x),
+-120vh
+)
+rotate(720deg);
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="yeu.mp3" type="audio/mpeg">
+</audio>
+
+<div id="heart-container"></div>
+```html
+<!-- TRANG 1 -->
+
+<div id="page1" class="page active">
+
+<div class="card">
+
+<img src="anh.jpg" class="main-img">
+
+<h1>💖 Huy ❤️ Trinh 💖</h1>
+
+<p>
+Chào mừng đến với hành trình hẹn hò của chúng ta
+</p>
+
+<button onclick="batDau()">
+❤️ BẮT ĐẦU ❤️
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 2 -->
+
+<div id="page2" class="page">
+
+<div class="card">
+
+<h2>🌷 Em tên gì nhỉ?</h2>
+
+<input
+type="text"
+id="ten"
+placeholder="Nhập họ tên">
+
+<button onclick="hien('page3')">
+Tiếp tục ➜
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 3 -->
+
+<div id="page3" class="page">
+
+<div class="card">
+
+<h2>📅 Chọn ngày hẹn</h2>
+
+<input
+type="date"
+id="ngay">
+
+<button onclick="hien('page4')">
+Tiếp tục ➜
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 4 -->
+
+<div id="page4" class="page">
+
+<div class="card">
+
+<h2>⏰ Chọn giờ gặp</h2>
+
+<input
+type="time"
+id="gio">
+
+<button onclick="hien('page5')">
+Tiếp tục ➜
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 5 -->
+
+<div id="page5" class="page">
+
+<div class="card">
+
+<h2>🍽️ Hôm đó ăn gì đây?</h2>
+
+<div class="food"
+onclick="chonMon('🍗 Jollibee')">
+🍗 Jollibee
+</div>
+
+<div class="food"
+onclick="chonMon('🥩 Bít Tết')">
+🥩 Bít Tết
+</div>
+
+<div class="food"
+onclick="chonMon('🍕 Pizza')">
+🍕 Pizza
+</div>
+
+<div class="food"
+onclick="chonMon('☕ Cafe')">
+☕ Cafe
+</div>
+
+<div class="food"
+onclick="chonMon('🎬 Xem phim')">
+🎬 Xem phim
+</div>
+
+</div>
+
+</div>
+
+<!-- TRANG 6 -->
+
+<div id="page6" class="page">
+
+<div class="card">
+
+<h2>💌 Điều em muốn nhắn</h2>
+
+<textarea
+id="loinhan"
+rows="6"
+placeholder="Viết điều em muốn nói với Huy ❤️">
+</textarea>
+
+<button onclick="hien('page7')">
+Tiếp tục ➜
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 7 -->
+
+<div id="page7" class="page">
+
+<div class="card">
+
+<h2>💖 XÁC NHẬN HẸN HÒ 💖</h2>
+
+<p>
+Sau khi xác nhận sẽ mở thư bí mật
+</p>
+
+<button onclick="showResult()">
+💞 XÁC NHẬN 💞
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 8 -->
+
+<div id="page8" class="page">
+
+<div class="card" id="resultBox">
+
+</div>
+
+</div>
+
+<!-- TRANG 9 -->
+
+<div id="page9" class="page">
+
+<div class="card">
+
+<h2>💌 Thư Bí Mật 💌</h2>
+
+<p>
+Cảm ơn em đã dành thời gian điền chiếc thiệp nhỏ này.
+</p>
+
+<p>
+Anh rất mong chờ ngày được gặp em ❤️
+</p>
+
+<button onclick="hien('page10')">
+🎁 Nhận Quà
+</button>
+
+</div>
+
+</div>
+
+<!-- TRANG 10 -->
+
+<div id="page10" class="page">
+
+<div class="card">
+
+<h2>🎁 Voucher Đặc Biệt 🎁</h2>
+
+<p>🥰 Được Huy ôm 999 lần</p>
+
+<p>♾️ Hiệu lực vĩnh viễn</p>
+
+<p>❤️ Yêu em rất nhiều ❤️</p>
+
+</div>
+
+</div>
+```html
+<script>
+
+let monDaChon = "";
+
+function hien(id){
+
+document
+.querySelector(".active")
+.classList.remove("active");
+
+document
+.getElementById(id)
+.classList.add("active");
+
+}
+
+function batDau(){
+
+document
+.getElementById("music")
+.play()
+.catch(()=>{});
+
+hien("page2");
+
+}
+
+function chonMon(mon){
+
+monDaChon = mon;
+
+hien("page6");
+
+}
+
+function showResult(){
+
+let ten =
+document.getElementById("ten").value;
+
+let ngay =
+document.getElementById("ngay").value;
+
+let gio =
+document.getElementById("gio").value;
+
+let loiNhan =
+document.getElementById("loinhan").value;
+
+document.getElementById("resultBox").innerHTML =
+
+`
+<h2>💖 KẾT QUẢ 💖</h2>
+
+<p><b>👩 Tên:</b> ${ten}</p>
+
+<p><b>📅 Ngày:</b> ${ngay}</p>
+
+<p><b>⏰ Giờ:</b> ${gio}</p>
+
+<p><b>🍽️ Món:</b> ${monDaChon}</p>
+
+<p><b>💌 Lời nhắn:</b></p>
+
+<p>${loiNhan}</p>
+
+<button onclick="hien('page9')">
+💌 Mở Thư Bí Mật
+</button>
+`;
+
+hien("page8");
+
+}
+
+setInterval(()=>{
+
+let heart =
+document.createElement("div");
+
+heart.className = "heart";
+
+let arr = [
+
+"❤️",
+"💖",
+"💕",
+"💗",
+"💞"
+
+];
+
+heart.innerHTML =
+arr[Math.floor(
+Math.random()*arr.length
+)];
+
+heart.style.left =
+Math.random()*100+"vw";
+
+heart.style.top =
+"105vh";
+
+heart.style.setProperty(
+
+"--x",
+
+(Math.random()*800-400)+"px"
+
+);
+
+heart.style.animationDuration =
+
+(4+Math.random()*4)+"s";
+
+document.body.appendChild(
+heart
+);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},120);
+
+</script>
+
+</body>
+</html>
+```
+
+
