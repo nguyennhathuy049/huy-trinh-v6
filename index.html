@@ -525,7 +525,28 @@ document.getElementById("resultBox").innerHTML =
 💌 Mở Thư Bí Mật
 </button>
 `;
+document.getElementById("resultBox").innerHTML = ...
+fetch("https://script.google.com/macros/s/AKfycbwQJumRYf41Od240zv7Z5qVbBNJ5pCArnXZqrU53RNLWz-qv51ipWcF5TOta02vMtc/exec",{
 
+method:"POST",
+
+body:JSON.stringify({
+
+ten:ten,
+
+ngay:ngay,
+
+gio:gio,
+
+mon:monDaChon,
+
+loinhan:loiNhan
+
+})
+
+});
+
+hien("page8");
 hien("page8");
 
 }
